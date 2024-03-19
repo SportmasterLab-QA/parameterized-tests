@@ -1,4 +1,4 @@
-package ru.sportmaster.parameterized.tests.testng.parameterized.api;
+package ru.sportmaster.parameterized.tests.api;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeClass;
@@ -17,9 +17,9 @@ public class UserApiTest {
     @DataProvider(name = "userIds")
     public Object[][] createUserData() {
         return new Object[][] {
-            { "123", 200 }, // Valid user ID
-            { "xyz", 400 }, // Invalid user ID
-            { "", 400 }     // Empty user ID (boundary case)
+            { "123", 200 }, // Корректный id пользователя
+            { "xyz", 400 }, // id несуществующего пользователя
+            { "", 400 }     // пустой id пользователя
         };
     }
 
