@@ -14,16 +14,16 @@ public class UserApiTest {
         RestAssured.baseURI = "http://api.example.com";
     }
 
-    @DataProvider(name = "userIds")
+    @DataProvider(name = "userIdsProvider")
     public Object[][] createUserData() {
         return new Object[][] {
             { "123", 200 }, // Корректный id пользователя
-            { "xyz", 400 }, // id несуществующего пользователя
+            { "xyz", 404 }, // id несуществующего пользователя
             { "", 400 }     // пустой id пользователя
         };
     }
 
-    @Test(dataProvider = "userIds")
+    @Test(dataProvider = "userIdsProvider")
     public void testGetUser(String userId, int expectedStatusCode) {
         given()
             .pathParam("userId", userId)

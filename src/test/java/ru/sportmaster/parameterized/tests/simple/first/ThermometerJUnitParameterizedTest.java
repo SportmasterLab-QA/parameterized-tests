@@ -1,8 +1,8 @@
 package ru.sportmaster.parameterized.tests.simple.first;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.testng.Assert;
 import ru.sportmaster.parameterized.tests.Thermometer;
 
 public class ThermometerJUnitParameterizedTest {
@@ -12,7 +12,7 @@ public class ThermometerJUnitParameterizedTest {
     public void test(double temperature) {
         Thermometer thermometer = new Thermometer();
 
-        Assert.assertTrue(thermometer.checkNeedToWearHat(temperature));
+        Assertions.assertTrue(thermometer.checkNeedToWearHat(temperature));
     }
 
 }

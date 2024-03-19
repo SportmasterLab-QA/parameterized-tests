@@ -17,7 +17,7 @@ public class JokeGeneratorTestNGParameterizedTest {
         };
     }
 
-    @Test
+    @Test(dataProvider = "provideJokeData")
     public void test(String jokeType, String expectedJoke) {
         String joke = JokeGenerator.getJoke(jokeType);
 

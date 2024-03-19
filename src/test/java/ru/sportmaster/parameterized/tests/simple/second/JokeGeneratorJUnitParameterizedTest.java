@@ -1,5 +1,6 @@
 package ru.sportmaster.parameterized.tests.simple.second;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -25,7 +26,7 @@ public class JokeGeneratorJUnitParameterizedTest {
     public void test(String jokeType, String expectedJoke) {
         String joke = JokeGenerator.getJoke(jokeType);
 
-        Assert.assertEquals(joke, expectedJoke);
+        Assertions.assertEquals(expectedJoke, joke);
     }
 
 }

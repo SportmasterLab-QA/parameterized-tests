@@ -6,7 +6,7 @@ import ru.sportmaster.parameterized.tests.ui.pages.PersonalProfilePage;
 
 public class FieldValidationTest {
 
-    @DataProvider
+    @DataProvider(name = "fieldDataProvider")
     public Object[][] provideFieldData() {
         return new Object[][]{
                 {"слишком_длинное_значение_поля_дата_рождения", "Значение превышает максимальную длину!"},
@@ -15,7 +15,7 @@ public class FieldValidationTest {
         };
     }
 
-    @Test
+    @Test(dataProvider = "fieldDataProvider")
     public void test(String dateOfBirth, String expectedValidationErrorText) {
         PersonalProfilePage personalProfilePage = new PersonalProfilePage();
 
